@@ -1,0 +1,26 @@
+### Mi script para ejercicio de maiz
+
+# Tener directorio
+setwd(../Prac_Uni6/maices/bin)
+getwd()
+
+# Activar librerias
+library(plyr)
+
+# Cargar el archivo
+fullmat <- read.delim("C:\\Users\\Israel MC\\Documents\\BioinfInvRepro2017-II-master\\Unidad6\\Prac_Uni6\\maices\\meta\\maizteocintle_SNP50k_meta_extended.txt", header = TRUE, stringsAsFactors = FALSE, check.names = F)
+
+# Cambio el nombre de la columna de Año de colecta, por alguna razon mi compu o Rstudio no la lee.
+colnames(fullmat)[which(names(fullmat) == "AÌ±o._de_colecta")] <- "Year"
+
+# Tipo de objeto al cargar el df
+str(fullmat)
+
+# Ver las primeras 6 lineas del archivo
+head(fullmat)
+
+# ¿Cuantas muestras hay?
+nrow(fullmat)
+
+# ¿De cuantos estados se tienen muestras?   Falta este
+xtabs(~Estado, data = fullmat)
